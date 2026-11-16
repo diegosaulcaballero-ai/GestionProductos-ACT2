@@ -1,24 +1,23 @@
 /**
- * Clase Main: Punto de entrada de la aplicación.
- * Aquí se instancian los objetos y se prueban los métodos de la clase Producto.
+ * Clase principal Main: Prueba la implementación de herencia,
+ * instanciando objetos de las clases derivadas y ejecutando sus métodos.
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== SISTEMA DE GESTIÓN DE PRODUCTOS ===\n");
+        System.out.println("=== PRUEBA DE HERENCIA: PRODUCTO ELECTRÓNICO ===");
+        // Instancia de la subclase ProductoElectronico
+        ProductoElectronico laptop = new ProductoElectronico("Laptop Lenovo", 15000.0, 5, 12);
+        laptop.mostrarDetalles();      // Método sobrescrito que llama a super.mostrarDetalles()
+        laptop.vender(2);              // Método heredado directamente de la clase base Producto
+        laptop.extenderGarantia(6);    // Método exclusivo de ProductoElectronico
+        laptop.mostrarDetalles();      // Verificamos el stock y garantía actualizados
 
-        // 1. Instanciación de objetos usando el constructor
-        Producto producto1 = new Producto("Laptop Dell", 15000.00, 10);
-        Producto producto2 = new Producto("Mouse Inalámbrico", 350.50, 25);
-
-        // 2. Prueba de métodos en el primer objeto
-        producto1.mostrarDetalles();
-        producto1.vender(3);
-        producto1.mostrarDetalles();
-
-        System.out.println("\n----------------------------------------\n");
-
-        // 3. Prueba de métodos en el segundo objeto
-        producto2.mostrarDetalles();
-        producto2.vender(30);
+        System.out.println("\n=== PRUEBA DE HERENCIA: PRODUCTO ALIMENTICIO ===");
+        // Instancia de la subclase ProductoAlimenticio
+        ProductoAlimenticio leche = new ProductoAlimenticio("Leche Entera 1L", 28.50, 20, "25/11/2026");
+        leche.mostrarDetalles();       // Método sobrescrito
+        leche.verificarCaducidad();    // Método exclusivo de ProductoAlimenticio
+        leche.vender(5);               // Método heredado de Producto
+        leche.mostrarDetalles();       // Verificamos el inventario actualizado
     }
 }
